@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: user-consume
+server:
+  port: 5557
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8888/eureka
+feign:
+  hystrix:
+    enabled: true

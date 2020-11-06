@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: student-consume
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+server:
+  port: 8899
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8888/eureka
+##主机
+#  spring.rabbitmq.host=192.168.233.132
+#  #端口
+#  spring.rabbitmq.port=5672
+#  #用户名
+#  spring.rabbitmq.username=admin
+#  #密码
+#  spring.rabbitmq.password=1111
+#  #虚拟分组
+#  spring.rabbitmq.virtual-host=/
+
+
+##开启熔断
+#feign:
+#  hystrix:
+#    enabled: true
+
+##断容器最小请求数，达到这个值过后才开始计算是否打开熔断器
+#hystrix.command.default.circuitBreaker.requestVolumeThreshold=3
+##错误百分比条件，达到熔断器最小请求数后错误率达到百分之多少后打开熔断器
+#hystrix.command.default.circuitBreaker.errorThresholdPercentage=5
+##默认5秒; 熔断器打开后多少秒后 熔断状态变成半熔断状态(对该微服务进行一次请求尝试，不成功则状态改成熔断，成功则关闭熔断器
+#hystrix.command.default.circuitBreaker.sleepWindowInMilliseconds=5000
